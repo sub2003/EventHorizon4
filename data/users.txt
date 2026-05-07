@@ -1,0 +1,3 @@
+ADM001,Alice Admin,admin@eventhorizon.com,admin123,0771234567,ADMIN,SUPER
+USR001,Bob Customer,bob@gmail.com,pass123,0779876543,CUSTOMER,2
+USR002,Carol Smith,carol@gmail.com,carol456,0712345678,CUSTOMER,1

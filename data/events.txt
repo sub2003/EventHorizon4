@@ -1,0 +1,4 @@
+EVT001|Coldplay World Tour 2026|Concert|2026-05-15|19:00|Colombo Stadium|4500.00|5000|4850|Coldplay live in Sri Lanka for the first time!|ACTIVE
+EVT002|IPL Finals Watch Party|Sports|2026-06-01|20:00|Sky Lounge Colombo|1200.00|200|180|Watch the IPL finals on a giant screen with food and drinks|ACTIVE
+EVT003|Web3 & AI Summit 2026|Technology|2026-04-25|09:00|Cinnamon Grand|2500.00|300|210|Annual tech summit featuring top speakers from Google, Microsoft and local startups|ACTIVE
+EVT004|Sinhala New Year Gala|Cultural|2026-04-13|18:00|BMICH Colombo|800.00|600|420|Traditional food, games, and live Baila performances|ACTIVE
