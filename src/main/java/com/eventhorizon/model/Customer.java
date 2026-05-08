@@ -22,11 +22,13 @@ public class Customer extends User {
         return "CUSTOMER";
     }
 
+
     // Override toFileString to include totalBookings
     @Override
     public String toFileString() {
         return super.toFileString() + "," + totalBookings;
     }
+
 
     // Build Customer object from a CSV line read from users.txt
     public static Customer fromFileString(String line) {
