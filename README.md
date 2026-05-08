@@ -589,19 +589,19 @@ mvn clean package
 8. Open the application in the browser.
 
 ```text
-[http://localhost:8080/EventHorizon](https://www.eventhorizonapp.online/)
+https://www.eventhorizonapp.online/
 ```
 
 Customer login:
 
 ```text
-[http://localhost:8080/EventHorizon/login.jsp](https://www.eventhorizonapp.online/login.jsp)
+https://www.eventhorizonapp.online/login.jsp
 ```
 
 Admin login:
 
 ```text
-[http://localhost:8080/EventHorizon/admin/login.jsp](https://www.eventhorizonapp.online/admin/login.jsp)
+https://www.eventhorizonapp.online/admin/login.jsp
 ```
 
 ### Maven Dependency Notes
