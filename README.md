@@ -588,21 +588,9 @@ mvn clean package
 
 8. Open the application in the browser.
 
-```text
-https://www.eventhorizonapp.online/
-```
-
-Customer login:
-
-```text
-https://www.eventhorizonapp.online/login.jsp
-```
-
-Admin login:
-
-```text
-https://www.eventhorizonapp.online/admin/login.jsp
-```
+- **Website:** [https://www.eventhorizonapp.online/](https://www.eventhorizonapp.online/)
+- **Customer Login:** [https://www.eventhorizonapp.online/login.jsp](https://www.eventhorizonapp.online/login.jsp)
+- **Admin Login:** [https://www.eventhorizonapp.online/admin/login.jsp](https://www.eventhorizonapp.online/admin/login.jsp)
 
 ### Maven Dependency Notes
 
