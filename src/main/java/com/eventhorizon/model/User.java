@@ -25,6 +25,7 @@ public abstract class User {
     // Default constructor (needed for file deserialization)
     public User() {}
 
+
     // Abstract method - POLYMORPHISM: each subclass provides its own implementation
     public abstract String getRole();
 
@@ -48,6 +49,7 @@ public abstract class User {
 
     public String getPhone()                { return phone; }
     public void   setPhone(String phone)    { this.phone = phone; }
+
 
     @Override
     public String toString() {
