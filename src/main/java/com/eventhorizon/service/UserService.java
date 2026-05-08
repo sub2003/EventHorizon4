@@ -16,6 +16,7 @@ public class UserService {
     private static final String CUSTOMER_TABLE = "customers";
     private static final String ADMIN_TABLE = "admins";
 
+
     public boolean registerCustomer(String name, String email, String password, String phone) {
         name = safeTrim(name);
         email = normalizeEmail(email);
