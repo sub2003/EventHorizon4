@@ -13,7 +13,9 @@ import java.io.IOException;
 
 public class UserServlet extends HttpServlet {
 
+
     private final UserService userService = new UserService();
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)

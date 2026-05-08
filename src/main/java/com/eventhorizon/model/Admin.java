@@ -19,6 +19,7 @@ public class Admin extends User {
         setAdminPermission(adminPermission);
     }
 
+
     public Admin() {
         super();
         this.adminPermission = CORE_ADMIN;
