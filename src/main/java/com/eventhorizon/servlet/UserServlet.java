@@ -18,7 +18,7 @@ public class UserServlet extends HttpServlet {
 
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)   //Handles from submissions
             throws ServletException, IOException {
 
         String action = req.getParameter("action");
@@ -89,7 +89,7 @@ public class UserServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)  // Handles URL based requests
             throws ServletException, IOException {
 
         String action = req.getParameter("action");
@@ -129,7 +129,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void handleRegister(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException {   //Gets customer registration details from the form and sends them to UserService to create a customer account.
 
         String name = trim(req.getParameter("name"));
         String email = trim(req.getParameter("email"));
@@ -146,7 +146,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void handleCustomerLogin(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException {    //Checks customer email and password. If correct, it creates a customer session and redirects to the event list page.
 
         String email = trim(req.getParameter("email"));
         String password = trim(req.getParameter("password"));
@@ -162,7 +162,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void handleAdminLogin(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException {  //  Checks admin email and password. If correct, it creates an admin session and redirects to the admin dashboard.
 
         String email = trim(req.getParameter("email"));
         String password = trim(req.getParameter("password"));
@@ -177,7 +177,7 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    private void createCustomerSession(HttpServletRequest req, User user) {
+    private void createCustomerSession(HttpServletRequest req, User user) {   //Stores customer details in the session after login. It also removes admin-related session values because this user is a customer.
         HttpSession session = req.getSession(true);
         session.setAttribute("userId", user.getUserId());
         session.setAttribute("userName", user.getName());
@@ -194,7 +194,7 @@ public class UserServlet extends HttpServlet {
         session.setMaxInactiveInterval(30 * 60);
     }
 
-    private void createAdminSession(HttpServletRequest req, Admin admin) {
+    private void createAdminSession(HttpServletRequest req, Admin admin) { //Stores admin details and permission values in the session after admin login. These permissions decide what the admin can access.
         HttpSession session = req.getSession(true);
 
         String permission = admin.getAdminPermission();
@@ -214,7 +214,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void handleLogout(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException {  //  Destroys the current session and redirects the user to the correct login page. Admins go to admin login, customers go to customer login.
 
         HttpSession session = req.getSession(false);
         boolean wasAdmin = false;
@@ -237,7 +237,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void handleUpdateProfile(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException {  //Allows the logged-in user to update their own name, phone, and password. If successful, it updates the session values too.
 
         HttpSession session = req.getSession(false);
         if (session == null) {
@@ -267,7 +267,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void handleSelfDelete(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException {  //Allows only customers to delete their own account. After deletion, it logs them out and redirects to the login page.
 
         HttpSession session = req.getSession(false);
         if (session == null) {
@@ -295,7 +295,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void handleAdminUpdate(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException {  //Allows a core admin to update another user’s details, including role and admin permission. If the admin updates their own account, the session is also updated.
 
         HttpSession session = req.getSession(false);
         String currentAdminId = (String) session.getAttribute("userId");
@@ -335,7 +335,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void handleDelete(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException {  //Allows a core admin to delete a selected user account.
 
         HttpSession session = req.getSession(false);
         String currentAdminId = (String) session.getAttribute("userId");
@@ -353,7 +353,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void handleRequestAdmin(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException {  //Allows an admin with request permission to submit a request to create a new admin account.
 
         HttpSession session = req.getSession(false);
         String requesterAdminId = (String) session.getAttribute("userId");
@@ -376,7 +376,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void handleApproveAdminRequest(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException {  //Allows a core admin to approve a pending admin request. After approval, the requested admin account is created/activated.
 
         HttpSession session = req.getSession(false);
         String approverAdminId = (String) session.getAttribute("userId");
@@ -392,7 +392,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void handleRejectAdminRequest(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException {  //Allows a core admin to reject a pending admin request.
 
         HttpSession session = req.getSession(false);
         String approverAdminId = (String) session.getAttribute("userId");
@@ -408,7 +408,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void requireFullAccessAdmin(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException { //Checks whether the logged-in user is an admin with full/core access. If not, it redirects them away.
 
         HttpSession session = req.getSession(false);
         if (session == null || !"ADMIN".equals(session.getAttribute("role"))) {
@@ -423,7 +423,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void requireRequestAdminAccess(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException {  //Checks whether the logged-in admin has permission to request/create admin accounts. If not, it redirects them away.
 
         HttpSession session = req.getSession(false);
         if (session == null || !"ADMIN".equals(session.getAttribute("role"))) {
@@ -439,5 +439,5 @@ public class UserServlet extends HttpServlet {
 
     private String trim(String value) {
         return value == null ? null : value.trim();
-    }
+    } //Removes extra spaces from input values. If the value is null, it returns null instead of causing an error.
 }

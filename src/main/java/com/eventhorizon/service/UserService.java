@@ -164,7 +164,7 @@ public class UserService {
     }
 
     public List<Map<String, String>> getPendingAdminRequests(String currentAdminId) {
-        List<Map<String, String>> requests = new ArrayList<>();
+        List<Map<String, String>> requests = new ArrayList<>(); //-----------------------------------------------------------------------------------------------------------------------------------------
 
         try (Connection conn = DatabaseConnection.getConnection()) {
 
@@ -467,17 +467,17 @@ public class UserService {
     }
 
     public boolean updateUser(String userId, String newName, String newPhone, String newPassword) {
-        userId = safeTrim(userId);
+        userId = safeTrim(userId);      //Sanitize all inputs
         newName = safeTrim(newName);
         newPhone = safeTrim(newPhone);
         newPassword = safeTrim(newPassword);
 
-        if (isBlank(userId) || isBlank(newName) || isBlank(newPhone)) {
+        if (isBlank(userId) || isBlank(newName) || isBlank(newPhone)) {  //ckeck all fields are filled
             return false;
         }
 
         User existing = getUserById(userId);
-        if (existing == null) {
+        if (existing == null) {  //prevent duplicate email   .reject update
             return false;
         }
 
@@ -608,7 +608,7 @@ public class UserService {
         }
 
         User targetUser = getUserById(userId);
-        if (targetUser == null) {
+        if (targetUser == null) { //check target user exist.
             return false;
         }
 
