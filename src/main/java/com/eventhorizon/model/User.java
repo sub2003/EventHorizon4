@@ -29,10 +29,6 @@ public abstract class User {
     // Abstract method - POLYMORPHISM: each subclass provides its own implementation
     public abstract String getRole();
 
-    // Returns a CSV line to save into the .txt file
-    public String toFileString() {
-        return userId + "," + name + "," + email + "," + password + "," + phone + "," + getRole();
-    }
 
     // -------------------- Getters & Setters --------------------
     public String getUserId()               { return userId; }
@@ -50,9 +46,4 @@ public abstract class User {
     public String getPhone()                { return phone; }
     public void   setPhone(String phone)    { this.phone = phone; }
 
-
-    @Override
-    public String toString() {
-        return "User[id=" + userId + ", name=" + name + ", role=" + getRole() + "]";
-    }
 }

@@ -105,8 +105,8 @@
             border-radius: 999px;
             font-size: 12px;
             font-weight: 700;
-            color: #ddd6fe;
-            background: rgba(91, 33, 182, 0.22);
+            color: #ffffff;
+            background: linear-gradient(135deg, #5B21B6, #3B0760);
             border: 1px solid rgba(167, 139, 250, 0.22);
             white-space: nowrap;
         }
