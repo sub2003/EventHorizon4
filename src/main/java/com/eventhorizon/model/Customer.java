@@ -21,22 +21,7 @@ public class Customer extends User {
     public String getRole() {
         return "CUSTOMER";
     }
-
-
-    // Override toFileString to include totalBookings
-    @Override
-    public String toFileString() {
-        return super.toFileString() + "," + totalBookings;
-    }
-
-
-    // Build Customer object from a CSV line read from users.txt
-    public static Customer fromFileString(String line) {
-        String[] parts = line.split(",");
-        // parts: userId, name, email, password, phone, role, totalBookings
-        int bookings = parts.length > 6 ? Integer.parseInt(parts[6]) : 0;
-        return new Customer(parts[0], parts[1], parts[2], parts[3], parts[4], bookings);
-    }
+    
 
     public int  getTotalBookings()          { return totalBookings; }
     public void setTotalBookings(int count) { this.totalBookings = count; }
