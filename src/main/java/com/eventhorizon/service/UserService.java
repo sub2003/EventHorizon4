@@ -642,7 +642,7 @@ public class UserService {
 
             if ("CUSTOMER".equalsIgnoreCase(targetUser.getRole())) {
                 try (PreparedStatement bookingPs = conn.prepareStatement(
-                        "DELETE FROM bookings WHERE customer_id = ?")) {
+                        "DELETE FROM bookings WHERE customer_id = ?")) {   //delete all bookings records
                     bookingPs.setString(1, userId);
                     bookingPs.executeUpdate();
                 }
